@@ -52,7 +52,10 @@ class NotebookManagerState extends SqliteDbManagerWidgetState {
                           buttons: [
                             DialogButton(
                               onPressed: () {
-                                renameTableTo(record.data['name'], _controller.text).then((value) => setState((){_controller.text = "";})).catchError((e){
+                                renameTableTo(record.data['name'], _controller.text).then((value) {
+                                  setState((){_controller.text = "";});
+                                  Navigator.pop(context);
+                                }).catchError((e){
                                   alertError(context, e, 'Failed to reanem ${record.data['name']} to ${_controller.text}');
                                 });
                               },

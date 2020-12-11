@@ -51,7 +51,7 @@ mixin SqliteDbManager {
     if (resultSet.isEmpty) {
       return 1;
     }
-    return resultSet.last['rowid'];
+    return resultSet.last['rowid'] + 1;
   }
 
   Future<Database> get database;
